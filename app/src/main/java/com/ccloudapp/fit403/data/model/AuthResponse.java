@@ -13,8 +13,6 @@ public class AuthResponse {
     private String mLoggedInUrl;
     @SerializedName("access_token")
     private String mAccessToken;
-    @SerializedName("message")
-    private String mMessage;
 
     public AuthResponse(){
     }
@@ -41,14 +39,6 @@ public class AuthResponse {
 
     public void setStatus(String status) {
         mStatus = status;
-    }
-
-    public String getMessage() {
-        return mMessage;
-    }
-
-    public void setMessage(String message) {
-        mMessage = message;
     }
 
     @Override

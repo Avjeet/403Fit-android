@@ -3,6 +3,8 @@ package com.ccloudapp.fit403.di.component;
 
 import com.ccloudapp.fit403.di.module.ActivityModule;
 import com.ccloudapp.fit403.di.scopes.ActivityScoped;
+import com.ccloudapp.fit403.ui.LaunchActivity;
+import com.ccloudapp.fit403.ui.auth.LoginActivity;
 
 import dagger.Subcomponent;
 
@@ -13,5 +15,6 @@ import dagger.Subcomponent;
 @ActivityScoped
 @Subcomponent(modules = ActivityModule.class)
 public interface ActivityComponent {
-
+    void inject(LoginActivity loginActivity);
+    void inject(LaunchActivity launchActivity);
 }

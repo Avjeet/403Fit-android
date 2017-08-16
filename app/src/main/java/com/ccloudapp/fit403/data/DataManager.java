@@ -19,6 +19,7 @@ import javax.inject.Singleton;
 
 import dagger.Lazy;
 import rx.Observable;
+import rx.functions.Action1;
 import rx.functions.Func1;
 
 /**
@@ -55,9 +56,9 @@ public class DataManager {
     //TODO: Add data layer interactions here.
 
     public Observable<AuthResponse> login(String username, String password) {
-        AuthRequest authRequest = new AuthRequest();
-        authRequest.setUsername(username);
-        authRequest.setPassword(password);
-        return lazyFitnessRestClient.get().login(authRequest);
+        return lazyFitnessRestClient.get().login(username, password).doOnNext(
+                authResponse -> {
+                    mPreferencesHelper.setActiveAccountToken(authResponse.getAccessToken());
+                });
     }
 }

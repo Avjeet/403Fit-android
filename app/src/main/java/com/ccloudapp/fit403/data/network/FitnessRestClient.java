@@ -18,6 +18,9 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
+import retrofit2.http.Field;
+import retrofit2.http.FieldMap;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 import rx.Observable;
 
@@ -27,14 +30,16 @@ import rx.Observable;
 
 public interface FitnessRestClient {
 
-    String REST_ENDPOINT = "https://api.ccloudapp.com/403FitServerAPI/v1/API.php";
+    String REST_ENDPOINT = "https://api.ccloudapp.com/403FitServerAPI/v1/API.php/";
     String AUTH_HEADER = "Authorization";
 
 
     @POST("?Command=Login")
-    Observable<AuthResponse> login(@Body AuthRequest authRequest);
+    @FormUrlEncoded
+    Observable<AuthResponse> login(@Field("Username") String name, @Field("Password") String password);
 
     class Creator {
+
         public static FitnessRestClient makeFitApi(Context context) {
             HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
             httpLoggingInterceptor.setLevel(BuildConfig.DEBUG ?

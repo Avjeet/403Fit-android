@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="32dp"
+    tools:context="com.ccloudapp.fit403.ui.DummyActivity">
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+              android:layout_gravity="center"
+              android:gravity="center"
+              android:fontFamily="sans-serif"
+              android:textSize="16sp"
+              android:text="Thanks for signing. New features will be added soon."/>
+
+</FrameLayout>

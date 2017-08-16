@@ -17,6 +17,8 @@ public interface AuthContract {
         void showErrorMsg(String msg);
 
         void showSuccessMsg(String msg);
+
+        void showDummyActivity();
     }
 
     interface Presenter extends BasePresenter<View>{

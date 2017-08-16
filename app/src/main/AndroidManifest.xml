@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ccloudapp.fit403">
+          package="com.ccloudapp.fit403">
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
@@ -13,12 +13,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.auth.LoginActivity">
+        </activity>
+        <activity android:name=".ui.auth.SignupActivity"/>
+        <activity android:name=".ui.LaunchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
+
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ui.auth.SignupActivity"></activity>
+        <activity android:name=".ui.DummyActivity">
+        </activity>
     </application>
 
 </manifest>

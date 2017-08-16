@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">403 Fitness</string>
+    <string name="create_account_string"><u>Don\'t have an account. Create one</u></string>
 </resources>

@@ -5,35 +5,48 @@ import android.util.Log;
 
 import com.ccloudapp.fit403.FitnessApp;
 import com.ccloudapp.fit403.data.DataManager;
+import com.ccloudapp.fit403.data.model.ApiError;
 import com.ccloudapp.fit403.data.model.AuthResponse;
 import com.ccloudapp.fit403.di.context.ActivityContext;
 import com.ccloudapp.fit403.ui.base.BasePresenterImpl;
 import com.ccloudapp.fit403.util.RxUtil;
+import com.google.gson.Gson;
 
-import rx.Scheduler;
+import java.io.IOException;
+
+import javax.inject.Inject;
+
+import okhttp3.ResponseBody;
+import retrofit2.HttpException;
 import rx.Subscriber;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action0;
 import rx.schedulers.Schedulers;
 
 /**
  * Created by dev on 12/8/17.
  */
 
-public class AuthPresenterImpl extends BasePresenterImpl<AuthContract.View> implements AuthContract.Presenter {
+public class AuthPresenterImpl extends BasePresenterImpl<AuthContract.View> implements
+        AuthContract.Presenter {
 
     private final DataManager mDataManager;
     private Subscription mSubscription;
     private static final String TAG = "AuthPresenterImpl";
 
-    public AuthPresenterImpl(@ActivityContext Context loginActivity){
+    @Inject
+    public AuthPresenterImpl(@ActivityContext Context loginActivity) {
         mDataManager = FitnessApp.get(loginActivity).getApplicationComponent().dataManager();
     }
 
     @Override
     public void onLogin(String username, String password) {
+        checkViewAttached();
+
         mSubscription = mDataManager.login(username, password).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+                .doOnSubscribe(() -> getView().showProgressDialog("Loading"))
                 .subscribe(new Subscriber<AuthResponse>() {
                     @Override
                     public void onCompleted() {
@@ -43,11 +56,25 @@ public class AuthPresenterImpl extends BasePresenterImpl<AuthContract.View> impl
                     @Override
                     public void onError(Throwable e) {
                         e.printStackTrace();
+                        getView().dismissProgressDialog();
+                        if (e instanceof HttpException) {
+                            ResponseBody body = ((HttpException) e).response().errorBody();
+                            Gson gson = new Gson();
+                            try {
+                                ApiError error = gson.fromJson(body.string(), ApiError.class);
+                                getView().showErrorMsg(error.getMessage());
+                            } catch (IOException e1) {
+                                e1.printStackTrace();
+                                getView().showErrorMsg(e1.getMessage());
+                            }
+                        }
                     }
 
                     @Override
                     public void onNext(AuthResponse authResponse) {
-                        Log.i(TAG, "onNext: "+authResponse.toString());
+                        Log.i(TAG, "onNext : " + authResponse.toString());
+                        getView().dismissProgressDialog();
+                        getView().showDummyActivity();
                     }
                 });
     }
