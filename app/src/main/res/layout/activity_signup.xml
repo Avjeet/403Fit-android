@@ -1,9 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ccloudapp.fit403.ui.auth.SignupActivity">
+    tools:context="com.ccloudapp.fit403.ui.auth.LoginActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <ImageView android:layout_width="match_parent" android:layout_height="match_parent"
+               android:scaleType="centerCrop"
+               android:src="@drawable/background"/>
+    <android.support.v7.widget.Toolbar android:layout_width="match_parent"
+                                       android:layout_height="56dp"
+                                       android:background="@android:color/transparent"></android.support.v7.widget.Toolbar>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        android:paddingLeft="32dp"
+        android:paddingRight="32dp">
+
+
+        <EditText
+            android:id="@+id/email_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/background_edit_text"
+            android:drawableLeft="@drawable/ic_mail"
+            android:drawablePadding="12dp"
+            android:drawableStart="@drawable/ic_mail"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:paddingBottom="8dp"
+            android:paddingEnd="8dp"
+            android:paddingLeft="8dp"
+            android:paddingStart="8dp" android:paddingTop="8dp"
+            android:textSize="16sp"/>
+        <View android:layout_width="match_parent" android:layout_height="0.5dp"
+              android:background="@color/zorba"/>
+        <EditText
+            android:id="@+id/user_name_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/background_edit_text"
+            android:drawableLeft="@drawable/ic_male_user"
+            android:drawablePadding="12dp"
+            android:drawableStart="@drawable/ic_male_user"
+            android:fontFamily="sans-serif"
+            android:hint="@string/username"
+            android:inputType="text"
+            android:paddingBottom="8dp"
+            android:paddingEnd="8dp"
+            android:paddingLeft="8dp"
+            android:paddingStart="8dp" android:paddingTop="8dp"
+            android:textSize="16sp"/>
+        <View android:layout_width="match_parent" android:layout_height="0.5dp"
+              android:background="@color/zorba"/>
+        <EditText
+            android:id="@+id/password_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/background_edit_text"
+            android:drawableLeft="@drawable/ic_lock"
+            android:drawablePadding="12dp"
+            android:drawableStart="@drawable/ic_lock"
+            android:fontFamily="sans-serif"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:paddingBottom="8dp"
+            android:paddingEnd="8dp"
+            android:paddingStart="8dp"
+            android:paddingTop="8dp" android:textSize="16sp"/>
+        <View android:layout_width="match_parent" android:layout_height="0.5dp"
+              android:background="@color/zorba"/>
+        <EditText
+            android:id="@+id/dob_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/background_edit_text"
+            android:drawableLeft="@drawable/ic_calendar"
+            android:drawablePadding="12dp"
+            android:drawableStart="@drawable/ic_calendar"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:fontFamily="sans-serif"
+            android:hint="@string/date_of_birth"
+            android:inputType="text"
+            android:paddingBottom="8dp"
+            android:paddingEnd="8dp"
+            android:paddingLeft="8dp"
+            android:paddingStart="8dp" android:paddingTop="8dp"
+            android:textSize="16sp"/>
+
+        <View android:layout_width="match_parent" android:layout_height="0.5dp"
+              android:background="@color/zorba"/>
+
+        <RadioGroup android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:background="@drawable/background_edit_text"
+        android:id="@+id/gender_radio_group">
+            <RadioButton android:layout_width="0dp" android:layout_height="wrap_content"
+            android:id="@+id/male_radio_button"
+                         android:layout_weight="1"
+            android:text="@string/male"/>
+            <RadioButton android:layout_width="0dp" android:layout_height="wrap_content"
+                         android:id="@+id/female_radio_button"
+                         android:layout_weight="1"
+                         android:text="@string/female"/>
+        </RadioGroup>
+        <Button
+            android:id="@+id/register_button"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:elevation="4dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/rounded_green_bkg"
+            android:text="@string/sign_up"
+            android:textColor="#FFF"
+        />
+    </LinearLayout>
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+              android:layout_gravity="bottom"
+              android:background="@color/colorPrimary"
+              android:paddingBottom="8dp"
+              android:paddingLeft="16dp"
+              android:paddingRight="16dp"
+              android:paddingTop="8dp"
+              android:text="@string/by_clicking_signup_you_are_agree_to_terms_and_conditions"
+              android:textColor="@color/snow"/>
+</android.support.design.widget.CoordinatorLayout>

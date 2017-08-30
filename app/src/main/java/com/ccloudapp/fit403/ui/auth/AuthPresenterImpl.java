@@ -7,6 +7,7 @@ import com.ccloudapp.fit403.FitnessApp;
 import com.ccloudapp.fit403.data.DataManager;
 import com.ccloudapp.fit403.data.model.ApiError;
 import com.ccloudapp.fit403.data.model.AuthResponse;
+import com.ccloudapp.fit403.data.model.User;
 import com.ccloudapp.fit403.di.context.ActivityContext;
 import com.ccloudapp.fit403.ui.base.BasePresenterImpl;
 import com.ccloudapp.fit403.util.RxUtil;
@@ -31,13 +32,14 @@ import rx.schedulers.Schedulers;
 public class AuthPresenterImpl extends BasePresenterImpl<AuthContract.View> implements
         AuthContract.Presenter {
 
+
     private final DataManager mDataManager;
     private Subscription mSubscription;
     private static final String TAG = "AuthPresenterImpl";
 
     @Inject
-    public AuthPresenterImpl(@ActivityContext Context loginActivity) {
-        mDataManager = FitnessApp.get(loginActivity).getApplicationComponent().dataManager();
+    public AuthPresenterImpl(DataManager dataManager) {
+        mDataManager = dataManager;
     }
 
     @Override
@@ -47,7 +49,7 @@ public class AuthPresenterImpl extends BasePresenterImpl<AuthContract.View> impl
         mSubscription = mDataManager.login(username, password).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe(() -> getView().showProgressDialog("Loading"))
-                .subscribe(new Subscriber<AuthResponse>() {
+                .subscribe(new Subscriber<User>() {
                     @Override
                     public void onCompleted() {
                         Log.d(TAG, "onCompleted() called");
@@ -71,8 +73,8 @@ public class AuthPresenterImpl extends BasePresenterImpl<AuthContract.View> impl
                     }
 
                     @Override
-                    public void onNext(AuthResponse authResponse) {
-                        Log.i(TAG, "onNext : " + authResponse.toString());
+                    public void onNext(User user) {
+                        Log.i(TAG, "onNext : " + user.username);
                         getView().dismissProgressDialog();
                         getView().showDummyActivity();
                     }

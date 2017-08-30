@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+>
+    <include layout="@layout/toolbar"
+             android:elevation="10dp"/>
+    <ScrollView android:id="@+id/main_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="72dp"
+                android:layout_marginTop="56dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            tools:context="com.ccloudapp.fit403.ui.users.UserProfileActivity"
+            tools:layout_editor_absoluteY="1dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
+                android:layout_width="104dp"
+                android:layout_height="104dp"
+                android:layout_marginTop="32dp"
+                tools:src="@drawable/face"
+            />
+            <TextView android:id="@+id/user_name_tv"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="16dp"
+                      android:fontFamily="sans-serif-light"
+                      android:textColor="@color/text_primary_dark"
+                      android:textSize="24sp"
+                      tools:text="Amit Kumar"
+            />
+            <TextView android:id="@+id/user_subject_tv"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_marginLeft="48dp"
+                      android:layout_marginRight="48dp"
+                      android:layout_marginTop="16dp"
+                      android:fontFamily="sans-serif-medium"
+                      android:gravity="center"
+                      android:textColor="@color/text_primary_dark"
+                      android:textSize="16sp"
+                      tools:text="Hey there!  I am using Fitness App and this is amazing."
+            />
+
+            <View android:layout_width="match_parent" android:layout_height="0.5dp"
+                  android:layout_marginTop="32dp"
+                  android:background="@color/fitapp_100"/>
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:paddingBottom="4dp"
+                      android:paddingLeft="72dp"
+                      android:paddingTop="8dp"
+                      android:text="Description"/>
+            <TextView android:id="@+id/user_description_tv"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:drawableLeft="@drawable/ic_short_text_grey_24dp"
+                      android:drawablePadding="32dp"
+                      android:paddingBottom="16dp"
+                      android:paddingLeft="16dp"
+                      android:paddingRight="32dp"
+                      android:paddingTop="4dp"
+                      android:textColor="@color/text_primary_dark"
+                      android:textSize="16sp"
+                      tools:text="This is dummy description for a profile a people."
+            />
+            <View android:layout_width="match_parent" android:layout_height="0.5dp"
+                  android:background="@color/fitapp_100"/>
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="bottom|center"
+                  android:id="@+id/bottom_panel"
+                  android:gravity="center"
+                  android:orientation="horizontal"
+                  android:paddingBottom="12dp"
+                  android:paddingTop="12dp">
+        <TextView android:layout_width="0dp"
+                  android:layout_height="48dp"
+                  android:layout_marginLeft="32dp"
+                  android:layout_marginRight="8dp"
+                  android:layout_weight="1"
+                  android:background="@drawable/message_enabled_bkg"
+                  android:drawableLeft="@drawable/ic_mail_outline_grey_24dp"
+                  android:elevation="4dp"
+                  android:fontFamily="sans-serif-medium"
+                  android:gravity="center"
+                  android:paddingLeft="16dp"
+                  android:text="MESSAGE"
+                  android:textColor="#FFF"
+                  android:textSize="14sp"/>
+        <TextView android:layout_width="0dp"
+                  android:layout_height="48dp"
+                  android:layout_marginLeft="8dp"
+                  android:layout_marginRight="32dp"
+                  android:layout_weight="1"
+                  android:background="@drawable/add_friend_enabled_bkg"
+                  android:drawableLeft="@drawable/ic_person_add_accent_24dp"
+                  android:elevation="4dp"
+                  android:fontFamily="sans-serif-medium"
+                  android:gravity="center"
+                  android:paddingLeft="16dp"
+                  android:text="ADD FRIEND"
+                  android:textColor="#FFF"
+                  android:textSize="14sp"/>
+    </LinearLayout>
+    <ProgressBar android:id="@+id/loading_spinner"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:indeterminate="true"/>
+
+</android.support.design.widget.CoordinatorLayout>

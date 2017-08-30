@@ -9,9 +9,9 @@ import com.google.gson.annotations.SerializedName;
 public class AuthResponse {
     @SerializedName("status")
     private String mStatus;
-    @SerializedName("loggedin_url")
-    private String mLoggedInUrl;
-    @SerializedName("access_token")
+    @SerializedName("email")
+    private String mEmail;
+    @SerializedName("token")
     private String mAccessToken;
 
     public AuthResponse(){
@@ -25,12 +25,12 @@ public class AuthResponse {
         this.mAccessToken = accessToken;
     }
 
-    public String getLoggedInUrl() {
-        return mLoggedInUrl;
+    public String getEmail() {
+        return mEmail;
     }
 
-    public void setLoggedInUrl(String loggedInUrl) {
-        mLoggedInUrl = loggedInUrl;
+    public void setEmail(String email) {
+        mEmail = email;
     }
 
     public String getStatus() {

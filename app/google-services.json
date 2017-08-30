@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "173652975447",
+    "firebase_url": "https://zinc-computer-131605.firebaseio.com",
+    "project_id": "zinc-computer-131605",
+    "storage_bucket": "zinc-computer-131605.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:173652975447:android:349fe692f313ff4c",
+        "android_client_info": {
+          "package_name": "com.ccloudapp.fit403.debug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "173652975447-4rcccfjmorpoimdj25hqcrr5efgckm46.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAolo029m5Ko3sls_-oKVUZy07stpd7wd0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

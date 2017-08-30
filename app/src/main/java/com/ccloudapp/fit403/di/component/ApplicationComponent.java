@@ -12,6 +12,7 @@ import com.ccloudapp.fit403.di.context.ApplicationContext;
 import com.ccloudapp.fit403.di.module.ActivityModule;
 import com.ccloudapp.fit403.di.module.ApplicationModule;
 import com.ccloudapp.fit403.di.scopes.ApplicationScoped;
+import com.ccloudapp.fit403.service.MyFirebaseInstanceIDService;
 
 import javax.inject.Singleton;
 
@@ -42,4 +43,6 @@ public interface ApplicationComponent {
     DataManager dataManager();
 
     ActivityComponent plus(ActivityModule activityModule);
+
+    void inject(MyFirebaseInstanceIDService myFirebaseInstanceIDService);
 }

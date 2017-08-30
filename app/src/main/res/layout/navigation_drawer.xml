@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary"
+                android:orientation="vertical"
+                android:paddingTop="32dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/profile_image"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/face"/>
+    <TextView android:id="@+id/nav_user_name_tv" android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_below="@+id/profile_image"
+              android:layout_centerHorizontal="true"
+              android:layout_gravity="center_horizontal"
+              android:layout_marginTop="16dp"
+              android:fontFamily="sans-serif-medium"
+              android:text="John Cena"
+              android:textColor="#FFF"
+              android:textSize="18sp"/>
+
+    <TextView android:id="@+id/nav_user_email_tv" android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_below="@+id/nav_user_name_tv"
+              android:layout_centerHorizontal="true"
+              android:layout_gravity="center_horizontal"
+              android:layout_marginTop="4dp"
+              android:fontFamily="sans-serif-medium"
+              android:text="mr.doc10jl96@gmail.com"
+              android:textColor="@color/spun_pearl"
+              android:textSize="14sp"/>
+
+    <View android:id="@+id/divider1" android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:layout_below="@id/nav_user_email_tv"
+          android:layout_marginTop="16dp"
+          android:background="@color/fitapp_900"
+    />
+
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+              android:layout_below="@+id/divider1"
+              android:id="@+id/nav_browse_people_tv"
+              android:text="@string/browse_people"
+              android:textColor="#FFF"
+              android:textSize="16sp"
+              android:layout_marginTop="16dp"
+              android:drawablePadding="16dp"
+              android:paddingLeft="16dp"
+              android:paddingTop="8dp"
+              android:paddingBottom="8dp"
+              android:drawableLeft="@drawable/ic_people_outline_grey_24dp"
+
+
+
+
+    />
+
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+              android:layout_below="@+id/nav_browse_people_tv"
+              android:id="@+id/nav_friends_tv"
+              android:text="@string/my_friends"
+              android:textColor="#FFF"
+              android:textSize="16sp"
+              android:drawablePadding="16dp"
+              android:paddingLeft="16dp"
+              android:paddingTop="8dp"
+              android:paddingBottom="8dp"
+              android:drawableLeft="@drawable/ic_people_grey_24dp"
+    />
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+              android:layout_below="@+id/nav_friends_tv"
+              android:id="@+id/nav_chat_tv"
+              android:text="@string/chat_and_messages"
+              android:textColor="#FFF"
+              android:textSize="16sp"
+              android:drawablePadding="16dp"
+              android:paddingLeft="16dp"
+              android:paddingTop="8dp"
+              android:paddingBottom="8dp"
+              android:drawableLeft="@drawable/ic_chat_grey_24dp"
+    />
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+              android:layout_below="@+id/nav_chat_tv"
+              android:id="@+id/nav_group_tv"
+              android:text="Groups"
+              android:textColor="#FFF"
+              android:textSize="16sp"
+              android:drawablePadding="16dp"
+              android:paddingLeft="16dp"
+              android:paddingTop="8dp"
+              android:paddingBottom="8dp"
+              android:drawableLeft="@drawable/ic_people_outline_grey_24dp"
+    />
+
+    <View android:id="@+id/divider2" android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:layout_below="@id/nav_group_tv"
+          android:layout_marginTop="16dp"
+          android:background="@color/fitapp_900"
+    />
+
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+              android:layout_below="@+id/divider2"
+              android:id="@+id/nav_track_workout"
+              android:text="@string/track_workout"
+              android:textColor="#FFF"
+              android:textSize="16sp"
+              android:drawablePadding="16dp"
+              android:layout_marginTop="16dp"
+              android:paddingLeft="16dp"
+              android:paddingTop="8dp"
+              android:paddingBottom="8dp"
+              android:drawableLeft="@drawable/ic_dumbbell_variant_outline"
+    />
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+              android:layout_below="@+id/nav_track_workout"
+              android:id="@+id/nav_step_counter"
+              android:text="Step Counter"
+              android:textColor="#FFF"
+              android:textSize="16sp"
+              android:drawablePadding="16dp"
+              android:paddingLeft="16dp"
+              android:paddingTop="8dp"
+              android:paddingBottom="8dp"
+              android:drawableLeft="@drawable/ic_stick_man_running_on_a_treadmill"
+    />
+
+    <View android:id="@+id/divider3" android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:layout_below="@id/nav_step_counter"
+          android:layout_marginTop="16dp"
+          android:background="@color/fitapp_900"
+    />
+
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+              android:layout_below="@+id/divider3"
+              android:id="@+id/nav_settings"
+              android:text="Settings and Privacy"
+              android:textColor="#FFF"
+              android:textSize="16sp"
+              android:layout_marginTop="16dp"
+              android:paddingLeft="16dp"
+              android:paddingTop="8dp"
+              android:paddingBottom="8dp"
+    />
+
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+              android:layout_below="@+id/divider3"
+              android:id="@+id/nav_settings"
+              android:text="Settings and Privacy"
+              android:textColor="#FFF"
+              android:textSize="16sp"
+              android:layout_marginTop="16dp"
+              android:paddingLeft="16dp"
+              android:paddingTop="8dp"
+              android:paddingBottom="8dp"
+    />
+
+
+</RelativeLayout>

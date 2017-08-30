@@ -8,6 +8,7 @@ import com.ccloudapp.fit403.data.DataManager;
 import com.ccloudapp.fit403.di.component.ApplicationComponent;
 import com.ccloudapp.fit403.di.component.DaggerApplicationComponent;
 import com.ccloudapp.fit403.di.module.ApplicationModule;
+import com.evernote.android.job.JobManager;
 
 import javax.inject.Inject;
 
@@ -25,6 +26,7 @@ public class FitnessApp extends MultiDexApplication {
     DataManager mDataManager;
 
 
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -36,6 +38,7 @@ public class FitnessApp extends MultiDexApplication {
                     .build();
         }
         mApplicationComponent.inject(this);
+
     }
 
     public static FitnessApp get(Context context) {

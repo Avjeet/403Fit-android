@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+        <include layout="@layout/toolbar"/>
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:background="@color/colorPrimary"
+                      android:orientation="vertical"
+                      android:paddingBottom="16dp"
+                      android:paddingLeft="72dp"
+                      android:paddingRight="16dp">
+            <android.support.design.widget.TextInputLayout android:layout_width="match_parent"
+                                                           android:layout_height="wrap_content"
+                                                           android:textColorHint="@color/spun_pearl"
+                                                           app:counterEnabled="true"
+                                                           app:counterMaxLength="50"
+                                                           app:counterTextAppearance="@style/TextLabel"
+                                                           app:errorEnabled="true"
+                                                           app:errorTextAppearance="@style/error_appearance">
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/profile_title_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/title"
+                    android:inputType="text"
+                    android:maxLength="50"
+                    android:maxLines="1"
+                    android:textColor="#FFF"
+                    android:textSize="18sp"
+                />
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout android:layout_width="match_parent"
+                                                           android:layout_height="wrap_content"
+                                                           android:textColorHint="@color/spun_pearl"
+                                                           app:counterEnabled="true"
+                                                           app:counterMaxLength="200"
+                                                           app:counterTextAppearance="@style/TextLabel"
+                                                           app:errorEnabled="true"
+                                                           app:errorTextAppearance="@style/error_appearance">
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/profile_description_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/description"
+                    android:inputType="text"
+                    android:maxLength="200"
+                    android:maxLines="3"
+                    android:textColor="#FFF"
+                    android:textSize="18sp"
+                />
+            </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:layout_marginLeft="16dp"
+                  android:layout_marginRight="16dp"
+                  android:paddingBottom="16dp"
+                  android:paddingTop="16dp"
+                  android:text="@string/select_appropriate_details"
+                  android:textSize="14sp"/>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="48dp"
+                      android:orientation="horizontal"
+                      android:paddingLeft="16dp"
+                      android:paddingRight="16dp">
+            <ImageView android:layout_width="24dp"
+                       android:layout_height="48dp"
+                       app:srcCompat="@drawable/ic_waist"/>
+            <Spinner android:id="@+id/area_of_foucs_spinner"
+                     android:layout_width="match_parent"
+                     android:layout_height="match_parent"
+                     android:layout_marginLeft="32dp"
+            ></Spinner>
+        </LinearLayout>
+        <View android:layout_width="match_parent" android:layout_height="0.5dp"
+              android:layout_marginLeft="72dp"
+              android:layout_marginRight="32dp"
+              android:background="@color/spun_pearl"/>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="48dp"
+                      android:orientation="horizontal"
+                      android:paddingLeft="16dp"
+                      android:paddingRight="16dp">
+            <ImageView android:layout_width="24dp"
+                       android:layout_height="48dp"
+                       app:srcCompat="@drawable/ic_weightlifting"/>
+            <Spinner android:id="@+id/workout_type_spinner"
+                     android:layout_width="match_parent"
+                     android:layout_height="match_parent"
+                     android:layout_marginLeft="32dp"
+            ></Spinner>
+        </LinearLayout>
+        <View android:layout_width="match_parent" android:layout_height="0.5dp"
+              android:layout_marginLeft="72dp"
+              android:layout_marginRight="32dp"
+              android:background="@color/spun_pearl"/>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="48dp"
+                      android:orientation="horizontal"
+                      android:paddingLeft="16dp"
+                      android:paddingRight="16dp">
+            <ImageView android:layout_width="24dp"
+                       android:layout_height="48dp"
+                       app:srcCompat="@drawable/ic_dumbbell"/>
+            <Spinner android:id="@+id/workout_style_spinner"
+                     android:layout_width="match_parent"
+                     android:layout_height="match_parent"
+                     android:layout_marginLeft="32dp"
+            ></Spinner>
+        </LinearLayout>
+        <View android:layout_width="match_parent" android:layout_height="0.5dp"
+              android:layout_marginLeft="72dp"
+              android:layout_marginRight="32dp"
+              android:background="@color/spun_pearl"/>
+
+
+    </LinearLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/save_profile_floating_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|bottom"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="16dp"
+        app:fabSize="normal"
+        app:srcCompat="@drawable/ic_done_white_24dp"/>
+</android.support.design.widget.CoordinatorLayout>

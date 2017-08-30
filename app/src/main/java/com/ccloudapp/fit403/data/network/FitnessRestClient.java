@@ -3,25 +3,34 @@ package com.ccloudapp.fit403.data.network;
 import android.content.Context;
 
 import com.ccloudapp.fit403.BuildConfig;
-import com.ccloudapp.fit403.data.model.AuthRequest;
 import com.ccloudapp.fit403.data.model.AuthResponse;
+import com.ccloudapp.fit403.data.model.Credentials;
+import com.ccloudapp.fit403.data.model.User;
+import com.ccloudapp.fit403.data.model.UserPublic;
 import com.ccloudapp.fit403.data.network.interceptors.ServerFailureInterceptor;
 import com.ccloudapp.fit403.data.network.interceptors.UnauthorisedInterceptor;
+import com.ccloudapp.fit403.data.network.model.RequestFriend;
+import com.ccloudapp.fit403.data.network.model.ResponseFriendRequest;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
+import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
-import retrofit2.http.Field;
-import retrofit2.http.FieldMap;
-import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
+import retrofit2.http.HEAD;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
+import retrofit2.http.Path;
+import rx.Completable;
 import rx.Observable;
 
 /**
@@ -30,13 +39,36 @@ import rx.Observable;
 
 public interface FitnessRestClient {
 
-    String REST_ENDPOINT = "https://api.ccloudapp.com/403FitServerAPI/v1/API.php/";
+    String REST_ENDPOINT = "http://development.ccloudapp.com:8080/api/v1/";
     String AUTH_HEADER = "Authorization";
 
 
-    @POST("?Command=Login")
-    @FormUrlEncoded
-    Observable<AuthResponse> login(@Field("Username") String name, @Field("Password") String password);
+    @GET("users")
+    Observable<List<UserPublic>> getUsers(@Header(AUTH_HEADER) String token);
+
+    @POST("users")
+    Observable<User> register(@Body User user);
+
+    @POST("users/auth")
+    Observable<User> login(@Body Credentials credentials);
+
+    @PUT("users/me")
+    Completable updateProfile(@Header(AUTH_HEADER) String token, @Body User user);
+
+    @GET("users/{id}")
+    Observable<User> getUser(@Header(AUTH_HEADER) String token, @Path("id") String userId);
+
+    @POST("friendship/me/add_friend")
+    Observable<ResponseFriendRequest> addFriend(@Header(AUTH_HEADER) String token,
+            @Body RequestFriend requestFriend);
+
+    @PUT("friendship/me/confirm_friend")
+    Observable<ResponseFriendRequest> confirmFriend(@Header(AUTH_HEADER) String token,
+            @Body RequestFriend requestFriend);
+
+    @PUT("friendship/me/decline_friend")
+    Observable<ResponseFriendRequest> declineFriend(@Header(AUTH_HEADER) String token,
+            @Body RequestFriend requestFriend);
 
     class Creator {
 

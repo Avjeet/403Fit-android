@@ -7,6 +7,7 @@ android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
     defaultConfig {
+        vectorDrawables.useSupportLibrary = true
         applicationId "com.ccloudapp.fit403"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
@@ -22,6 +23,7 @@ android {
         debug {
             minifyEnabled false
             versionNameSuffix '-dev'
+            applicationIdSuffix ".debug"
         }
     }
 
@@ -72,11 +74,12 @@ dependencies {
     implementation "com.github.paolorotolo:appintro:${rootProject.ext.appintroVersion}"
 
     // Google location services
-    implementation "com.google.android.gms:play-services-location:${rootProject.ext.playServicesVersion}"
-    implementation "com.google.android.gms:play-services-places:${rootProject.ext.playServicesVersion}"
+    /*implementation "com.google.android.gms:play-services-location:${rootProject.ext.playServicesVersion}"
+    implementation "com.google.android.gms:play-services-places:${rootProject.ext.playServicesVersion}"*/
 
     // Firebase database
     implementation "com.google.firebase:firebase-database:${rootProject.ext.playServicesVersion}"
+    implementation "com.google.firebase:firebase-messaging:${rootProject.ext.playServicesVersion}"
 
     //Parceler Library
     implementation "org.parceler:parceler-api:${rootProject.ext.parcelerVersion}"
@@ -107,9 +110,6 @@ dependencies {
 
     //GreenDao Database
     implementation "org.greenrobot:greendao:${rootProject.ext.greendaoVersion}"
-
-    //State ProgressBar
-    implementation 'com.kofigyan.stateprogressbar:stateprogressbar:0.0.3'
 
     // Dagger
     implementation "com.google.dagger:dagger:${rootProject.ext.daggerVersion}"
@@ -158,3 +158,4 @@ dependencies {
     androidTestImplementation "com.android.support.test:runner:${rootProject.ext.runnerRulesVersion}"
     androidTestImplementation "com.android.support.test:rules:${rootProject.ext.runnerRulesVersion}"
 }
+apply plugin: 'com.google.gms.google-services'

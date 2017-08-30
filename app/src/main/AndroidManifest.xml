@@ -7,14 +7,19 @@
     <application
         android:name=".FitnessApp"
         android:allowBackup="true"
+        android:fullBackupContent="@xml/backup_config"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.auth.LoginActivity">
+        <activity
+            android:name=".ui.auth.LoginActivity"
+            android:windowSoftInputMode="adjustResize">
         </activity>
-        <activity android:name=".ui.auth.SignupActivity"/>
+        <activity
+            android:name=".ui.auth.SignupActivity"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
         <activity android:name=".ui.LaunchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -22,7 +27,30 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ui.DummyActivity">
+        <activity android:name=".ui.home.NavigationHomeActivity">
+        </activity>
+        <activity
+            android:name=".ui.profile.ProfileActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+        </activity>
+        <activity android:name=".ui.users.BrowseUsersActivity"
+        android:label="Browse People">
+        </activity>
+
+        <service android:name=".service.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name=".service.MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+
+        <activity android:name=".ui.users.UserProfileActivity"
+                  android:label="Profile"
+        android:parentActivityName=".ui.users.BrowseUsersActivity">
         </activity>
     </application>
 

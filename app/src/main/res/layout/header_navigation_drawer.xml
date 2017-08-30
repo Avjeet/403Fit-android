@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="32dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/profile_image"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/face"/>
+    <TextView android:id="@+id/nav_user_name_tv" android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_below="@+id/profile_image"
+              android:layout_centerHorizontal="true"
+              android:layout_gravity="center_horizontal"
+              android:layout_marginTop="16dp"
+              android:fontFamily="sans-serif-medium"
+              android:text="John Cena"
+              android:textColor="#FFF"
+              android:textSize="18sp"/>
+
+    <TextView android:id="@+id/nav_user_email_tv" android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_below="@+id/nav_user_name_tv"
+              android:layout_centerHorizontal="true"
+              android:layout_gravity="center_horizontal"
+              android:layout_marginTop="4dp"
+              android:fontFamily="sans-serif-medium"
+              android:text="mr.doc10jl96@gmail.com"
+              android:textColor="@color/spun_pearl"
+              android:textSize="14sp"/>
+</RelativeLayout>

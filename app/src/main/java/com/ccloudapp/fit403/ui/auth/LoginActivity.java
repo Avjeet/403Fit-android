@@ -5,17 +5,13 @@ import static android.support.design.widget.Snackbar.LENGTH_SHORT;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.BaseTransientBottomBar;
 import android.support.design.widget.Snackbar;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.ccloudapp.fit403.R;
-import com.ccloudapp.fit403.ui.DummyActivity;
+import com.ccloudapp.fit403.ui.home.NavigationHomeActivity;
 import com.ccloudapp.fit403.ui.base.BaseActivity;
 
 import javax.inject.Inject;
@@ -25,8 +21,8 @@ import butterknife.ButterKnife;
 
 public class LoginActivity extends BaseActivity implements AuthContract.View {
 
-    @BindView(R.id.user_name_edit_text)
-    EditText mUsernameEditText;
+    @BindView(R.id.email_edit_text)
+    EditText mEmailEditText;
 
     @BindView(R.id.password_edit_text)
     EditText mPasswordEditText;
@@ -34,8 +30,8 @@ public class LoginActivity extends BaseActivity implements AuthContract.View {
     @BindView(R.id.login_button)
     Button mLoginButton;
 
-    @BindView(R.id.create_account_tv)
-    TextView mCreateAccountTextView;
+    @BindView(R.id.register_button)
+    Button mRegisterButton;
 
     @Inject
     AuthPresenterImpl mAuthPresenter;
@@ -53,12 +49,10 @@ public class LoginActivity extends BaseActivity implements AuthContract.View {
         mProgressDialog = new ProgressDialog(this);
         mAuthPresenter.attachView(this);
         mLoginButton.setOnClickListener(
-                v -> mAuthPresenter.onLogin(mUsernameEditText.getText().toString().trim(),
+                v -> mAuthPresenter.onLogin(mEmailEditText.getText().toString().trim(),
                         mPasswordEditText.getText().toString().trim()));
-        mCreateAccountTextView.setOnClickListener(v -> {
-            //todo: go to signup activity
-            Toast.makeText(this, "This feature will be added when signup api method is done.", Toast.LENGTH_SHORT).show();
-            Log.d(TAG, "create account tv");
+        mRegisterButton.setOnClickListener(v -> {
+            startActivity(new Intent(this, SignupActivity.class));
         });
     }
 
@@ -78,7 +72,7 @@ public class LoginActivity extends BaseActivity implements AuthContract.View {
 
     @Override
     public void showErrorMsg(String msg) {
-        Snackbar.make(mUsernameEditText, msg, LENGTH_SHORT).show();
+        Snackbar.make(mEmailEditText, msg, LENGTH_SHORT).show();
     }
 
     @Override
@@ -88,7 +82,7 @@ public class LoginActivity extends BaseActivity implements AuthContract.View {
 
     @Override
     public void showDummyActivity() {
-        startActivity(new Intent(this, DummyActivity.class));
+        startActivity(new Intent(this, NavigationHomeActivity.class));
     }
 
     @Override

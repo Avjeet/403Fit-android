@@ -1,6 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">@color/fitapp_500</color>
+    <color name="colorPrimaryDark">@color/fitapp_700</color>
+    <color name="colorAccent">#4CAF4F</color>
+
+    <!-- App Colours -->
+    <color name="zorba">#97938f</color>
+    <color name="white">#FFFFFF</color>
+    <color name="snow">#FCFBFB</color>
+    <color name="spun_pearl">#A0A0A4</color>
+
+
+    <!--color generated using mcg -->
+    <color name="fitapp_50">#e4e6e7</color>
+    <color name="fitapp_100">#bcc0c3</color>
+    <color name="fitapp_200">#90969c</color>
+    <color name="fitapp_300">#636b74</color>
+    <color name="fitapp_400">#414c56</color>
+    <color name="fitapp_500">#202c38</color>
+    <color name="fitapp_600">#1c2732</color>
+    <color name="fitapp_700">#18212b</color>
+    <color name="fitapp_800">#131b24</color>
+    <color name="fitapp_900">#0b1017</color>
+    <color name="fitapp_A100">#4caf4f</color>
+    <color name="fitapp_A200">#2778ff</color>
+    <color name="fitapp_A400">#005bf3</color>
+    <color name="fitapp_A700">#0052da</color>
+
+    <color name="primary">#69F0AE</color>
+    <color name="accent">@color/primary</color> <!-- mono-color -->
+    <color name="primary_dark">#4aa87a</color>
+
+    <color name="error">#ffdd2c00</color>
+
+    <!-- common colours -->
+    <color name="text_primary_dark">#de000000</color> <!-- 87% -->
+    <color name="text_secondary_dark">#8a000000</color> <!-- 54% -->
+    <color name="text_tertiary_dark">#61000000</color> <!-- 38% -->
+    <color name="text_primary_light">#ffffffff</color>
+    <color name="text_secondary_light">#b3ffffff</color> <!-- 70% -->
+    <color name="text_disabled_light">#4dffffff</color> <!-- 30% -->
+    <color name="ripple_light">#99ffffff</color>
+    <color name="background_light">#fafafa</color> <!-- grey 50 -->
+    <color name="background_lightish">#e0e0e0</color> <!-- grey 300 -->
+    <color name="background_card">#ffffff</color>
+    <color name="background_dark">#ff333333</color>
+    <color name="immersive_bars">#99000000</color>
+
+    <color name="dribbble">#fff06292</color> <!-- pink 300 -->
+    <color name="dribbble_dark">#ec407a</color>
 </resources>
