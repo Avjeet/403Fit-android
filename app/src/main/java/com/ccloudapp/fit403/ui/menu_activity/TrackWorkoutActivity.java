@@ -1,9 +1,7 @@
-package com.ccloudapp.fit403.ui.users;
+package com.ccloudapp.fit403.ui.menu_activity;
 
-import android.content.Intent;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -11,9 +9,10 @@ import android.view.View;
 import android.widget.ProgressBar;
 
 import com.ccloudapp.fit403.R;
-import com.ccloudapp.fit403.data.model.UserPublic;
+import com.ccloudapp.fit403.data.model.Workout;
 import com.ccloudapp.fit403.ui.base.BaseActivity;
 import com.ccloudapp.fit403.ui.home.NavigationHomeActivity;
+import com.ccloudapp.fit403.ui.users.BrowseUsersPresenterImpl;
 
 import java.util.List;
 
@@ -22,11 +21,13 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class BrowseUsersActivity extends NavigationHomeActivity implements BrowseUsersContract.View{
-
+public class TrackWorkoutActivity extends NavigationHomeActivity implements TrackWorkoutContract.View{
+    private static final String TAG = "TrackWorkoutActivity";
+    @Inject
+    TrackWorkoutPresenterImpl trackWorkoutPresenter;
 
     @Inject
-    BrowseUsersPresenterImpl mBrowseUsersPresenter;
+    WorkoutAdapter workoutAdapter;
 
     @BindView(R.id.users_recycler_view)
     RecyclerView mUsersRecyclerView;
@@ -34,27 +35,23 @@ public class BrowseUsersActivity extends NavigationHomeActivity implements Brows
     @BindView(R.id.loading_spinner)
     ProgressBar mProgressBar;
 
-    @Inject
-    UsersAdapter mUsersAdapter;
-
-    private static final String TAG = "BrowseUsersActivity";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activityComponent().inject(this);
-        setContentView(R.layout.activity_browse_users);
+        setContentView(R.layout.activity_track_workout);
         ButterKnife.bind(this);
 
-        mUsersRecyclerView.setAdapter(mUsersAdapter);
+        mUsersRecyclerView.setAdapter(workoutAdapter);
         mUsersRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mBrowseUsersPresenter.attachView(this);
-        mBrowseUsersPresenter.browseUsers();
+
+        trackWorkoutPresenter.attachView(this);
+        trackWorkoutPresenter.showExercises();
     }
 
     @Override
     protected int getSelfNavDrawerItem() {
-        return NAVDRAWER_ITEM_BROSWE_PEOPLE;
+        return NAVDRAWER_ITEM_TRACK_WORKOUT;
     }
 
     @Override
@@ -78,19 +75,7 @@ public class BrowseUsersActivity extends NavigationHomeActivity implements Brows
     }
 
     @Override
-    public void showUsers(List<UserPublic> list) {
-        mUsersAdapter.setData(list);
-        mUsersAdapter.notifyDataSetChanged();
-    }
+    public void showWorkouts(List<Workout> workoutList) {
 
-    public void openProfileActivity(String userId){
-        Intent intent = new Intent(this, UserProfileActivity.class);
-        intent.putExtra("USER_ID", userId);
-        startActivity(intent);
-    }
-
-    @Override
-    public void revertView(int position) {
-        //do nothing
     }
 }

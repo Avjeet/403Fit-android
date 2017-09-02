@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingBottom="4dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="2dp"
+    app:cardUseCompatPadding="true">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/main_content"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginBottom="38dp"
+        android:background="?attr/selectableItemBackground"
+        android:orientation="vertical"
+        android:paddingBottom="16dp"
+        android:paddingTop="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <ImageView android:id="@+id/exercise_img"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_centerVertical="true"
+            app:srcCompat="@drawable/ic_dumbbell"/>
+        <LinearLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/exercise_img"
+            android:orientation="vertical"
+            android:paddingLeft="32dp"
+            android:paddingRight="16dp">
+            <TextView android:id="@+id/exercise_category" android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:drawablePadding="8dp"
+                android:textAllCaps="true"
+                android:textColor="@color/text_secondary_dark"
+                android:textSize="14sp"
+                tools:text="Chest"/>
+            <TextView android:id="@+id/exercise_name" android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/text_primary_dark"
+                android:textSize="18sp"
+                tools:text="Bench Press"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:maxLines="2"
+                android:id="@+id/date"
+                android:text="12 Oct'17"
+                android:textSize="16sp"
+                />
+        </LinearLayout>
+
+    </RelativeLayout>
+    <View android:layout_width="match_parent" android:layout_height="0.5dp"
+        android:background="@color/spun_pearl"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="48dp"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="48dp"
+        android:layout_gravity="bottom|right"
+        android:id="@+id/sets"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="right|center_vertical"
+        android:background="?attr/selectableItemBackground"
+        android:layout_marginRight="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:text="10"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textSize="14sp"/>
+</android.support.v7.widget.CardView>

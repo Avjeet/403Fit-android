@@ -12,7 +12,6 @@ import android.widget.TextView;
 import com.ccloudapp.fit403.R;
 import com.ccloudapp.fit403.data.model.BaseItemAdapter;
 import com.ccloudapp.fit403.data.model.Subheader;
-import com.ccloudapp.fit403.data.model.User;
 import com.ccloudapp.fit403.data.model.UserPublic;
 import com.ccloudapp.fit403.di.context.ActivityContext;
 
@@ -197,7 +196,7 @@ public class UsersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         TextView mAddFriendTextView;
         @BindView(R.id.subject_text_view)
         TextView mSubjectFriendTextView;
-        @BindView(R.id.user_profile_imageview)
+        @BindView(R.id.user_profile_image)
         ImageView mUserProfileImageView;
         @BindView(R.id.main_content)
         RelativeLayout mRelativeLayout;
@@ -221,7 +220,7 @@ public class UsersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         TextView mIgnoreFriendTextView;
         @BindView(R.id.subject_text_view)
         TextView mSubjectFriendTextView;
-        @BindView(R.id.user_profile_imageview)
+        @BindView(R.id.user_profile_image)
         ImageView mUserProfileImageView;
         @BindView(R.id.main_content)
         RelativeLayout mRelativeLayout;

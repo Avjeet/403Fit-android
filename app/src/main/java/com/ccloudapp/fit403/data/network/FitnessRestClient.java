@@ -7,6 +7,7 @@ import com.ccloudapp.fit403.data.model.AuthResponse;
 import com.ccloudapp.fit403.data.model.Credentials;
 import com.ccloudapp.fit403.data.model.User;
 import com.ccloudapp.fit403.data.model.UserPublic;
+import com.ccloudapp.fit403.data.model.Workout;
 import com.ccloudapp.fit403.data.network.interceptors.ServerFailureInterceptor;
 import com.ccloudapp.fit403.data.network.interceptors.UnauthorisedInterceptor;
 import com.ccloudapp.fit403.data.network.model.RequestFriend;
@@ -70,6 +71,8 @@ public interface FitnessRestClient {
     Observable<ResponseFriendRequest> declineFriend(@Header(AUTH_HEADER) String token,
             @Body RequestFriend requestFriend);
 
+    @GET("workout/me")
+    Observable<List<Workout>> getPreviousWorkouts(@Header(AUTH_HEADER) String token);
     class Creator {
 
         public static FitnessRestClient makeFitApi(Context context) {

@@ -6,6 +6,7 @@ import com.ccloudapp.fit403.data.model.AuthResponse;
 import com.ccloudapp.fit403.data.model.Credentials;
 import com.ccloudapp.fit403.data.model.User;
 import com.ccloudapp.fit403.data.model.UserPublic;
+import com.ccloudapp.fit403.data.model.Workout;
 import com.ccloudapp.fit403.data.network.FitnessRestClient;
 import com.ccloudapp.fit403.data.network.model.RequestFriend;
 import com.ccloudapp.fit403.data.network.model.ResponseFriendRequest;
@@ -120,4 +121,8 @@ public class DataManager {
         requestFriend.action = "decline_friend";
         return lazyFitnessRestClient.get().addFriend("Bearer " + mPreferencesHelper.getActiveAccountToken(), requestFriend);
     }
+    public Observable<List<Workout>> getPreviousWorkouts(){
+        return lazyFitnessRestClient.get().getPreviousWorkouts("Bearer "+mPreferencesHelper.getActiveAccountToken());
+    }
+
 }

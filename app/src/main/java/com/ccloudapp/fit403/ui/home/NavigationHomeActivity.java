@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.ccloudapp.fit403.R;
 import com.ccloudapp.fit403.data.DataManager;
 import com.ccloudapp.fit403.ui.base.BaseActivity;
+import com.ccloudapp.fit403.ui.menu_activity.TrackWorkoutActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -269,6 +270,9 @@ public class NavigationHomeActivity extends BaseActivity implements
 
     private void goToNavDrawerItem(int position) {
         switch (position) {
+            case 4:
+                Intent trackWorkoutAcitvity = new Intent(this, TrackWorkoutActivity.class);
+                createBackStack(trackWorkoutAcitvity);
             default:
                 Toast.makeText(this, "Clicked " + position, Toast.LENGTH_SHORT).show();
         }
