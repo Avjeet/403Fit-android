@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+    <include layout="@layout/toolbar"
+        android:elevation="10dp"/>
+    <ScrollView android:id="@+id/main_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="72dp"
+        android:layout_marginTop="56dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            tools:context="com.ccloudapp.fit403.ui.users.EnterWorkoutActivity"
+            tools:layout_editor_absoluteY="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:textColor="@color/colorPrimary"
+                    android:text="Name"
+                    android:gravity="right"
+                    android:layout_gravity="bottom"/>
+
+               <Spinner
+                   android:id="@+id/name_spinner"
+                   android:layout_width="0dp"
+                   android:layout_weight="1.3"
+                   android:layout_marginLeft="20dp"
+                   android:layout_height="wrap_content"
+                   tools:listheader="Exercise name"
+
+                   />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:textColor="@color/colorPrimary"
+                    android:text="Category"
+                    android:gravity="right"
+                    android:layout_gravity="bottom"/>
+
+                <EditText
+                    android:id="@+id/category_edit"
+                    android:layout_weight="1.3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_gravity="bottom"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:textColor="@color/colorPrimary"
+                    android:text="Sets"
+                    android:gravity="right"
+                    android:layout_gravity="bottom"/>
+
+                <EditText
+                    android:id="@+id/sets_edit"
+                    android:layout_weight="1.3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_gravity="bottom"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:id="@+id/bottom_panel"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="12dp"
+        android:paddingTop="12dp">
+        <TextView android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/message_enabled_bkg"
+
+            android:elevation="4dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+
+            android:text="Cancel"
+            android:textColor="#FFF"
+            android:textSize="18sp"/>
+        <TextView android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="32dp"
+            android:layout_weight="1"
+            android:background="@drawable/add_friend_enabled_bkg"
+
+            android:elevation="4dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+
+            android:text="Add Workout"
+            android:textColor="#FFF"
+            android:textSize="18sp"/>
+    </LinearLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>

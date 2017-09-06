@@ -7,6 +7,7 @@ import com.ccloudapp.fit403.ui.LaunchActivity;
 import com.ccloudapp.fit403.ui.auth.LoginActivity;
 import com.ccloudapp.fit403.ui.auth.SignupActivity;
 import com.ccloudapp.fit403.ui.home.NavigationHomeActivity;
+import com.ccloudapp.fit403.ui.menu_activity.EnterWorkoutActivity;
 import com.ccloudapp.fit403.ui.menu_activity.TrackWorkoutActivity;
 import com.ccloudapp.fit403.ui.profile.ProfileActivity;
 import com.ccloudapp.fit403.ui.users.BrowseUsersActivity;
@@ -35,4 +36,8 @@ public interface ActivityComponent {
     void inject(UserProfileActivity userProfileActivity);
 
     void inject(TrackWorkoutActivity trackWorkoutActivity);
+
+    void inject(EnterWorkoutActivity enterWorkoutActivity);
+
+
 }

@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".ui.auth.LoginActivity"
-            android:windowSoftInputMode="adjustResize"></activity>
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ui.auth.SignupActivity"
             android:windowSoftInputMode="adjustPan|stateHidden" />
@@ -26,13 +26,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.home.NavigationHomeActivity"></activity>
+        <activity android:name=".ui.home.NavigationHomeActivity" />
         <activity
             android:name=".ui.profile.ProfileActivity"
-            android:windowSoftInputMode="stateHidden|adjustResize"></activity>
+            android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".ui.users.BrowseUsersActivity"
-            android:label="Browse People"></activity>
+            android:label="Browse People" />
 
         <service android:name=".service.MyFirebaseMessagingService">
             <intent-filter>
@@ -48,8 +48,9 @@
         <activity
             android:name=".ui.users.UserProfileActivity"
             android:label="Profile"
-            android:parentActivityName=".ui.users.BrowseUsersActivity"></activity>
-        <activity android:name=".ui.menu_activity.TrackWorkoutActivity"></activity>
+            android:parentActivityName=".ui.users.BrowseUsersActivity" />
+        <activity android:name=".ui.menu_activity.TrackWorkoutActivity" />
+        <activity android:name=".ui.menu_activity.EnterWorkoutActivity"></activity>
     </application>
 
 </manifest>

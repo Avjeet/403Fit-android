@@ -2,15 +2,15 @@ package com.ccloudapp.fit403.data;
 
 import com.ccloudapp.fit403.data.local.db.DatabaseHelper;
 import com.ccloudapp.fit403.data.local.prefs.PreferencesHelper;
-import com.ccloudapp.fit403.data.model.AuthResponse;
 import com.ccloudapp.fit403.data.model.Credentials;
+import com.ccloudapp.fit403.data.model.ExerciseName;
+import com.ccloudapp.fit403.data.model.Exercise_category;
 import com.ccloudapp.fit403.data.model.User;
 import com.ccloudapp.fit403.data.model.UserPublic;
 import com.ccloudapp.fit403.data.model.Workout;
 import com.ccloudapp.fit403.data.network.FitnessRestClient;
 import com.ccloudapp.fit403.data.network.model.RequestFriend;
 import com.ccloudapp.fit403.data.network.model.ResponseFriendRequest;
-import com.ccloudapp.fit403.di.scopes.ApplicationScoped;
 
 
 import java.util.List;
@@ -19,11 +19,9 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import dagger.Lazy;
-import retrofit2.Call;
 import rx.Completable;
 import rx.Observable;
-import rx.functions.Action1;
-import rx.functions.Func2;
+import rx.Single;
 
 /**
  * Created by amit on 31/12/16.
@@ -123,6 +121,14 @@ public class DataManager {
     }
     public Observable<List<Workout>> getPreviousWorkouts(){
         return lazyFitnessRestClient.get().getPreviousWorkouts("Bearer "+mPreferencesHelper.getActiveAccountToken());
+    }
+
+    public Single<List<Exercise_category>> getExercisescategory(){
+        return lazyFitnessRestClient.get().getExerciseCategory("Bearer "+mPreferencesHelper.getActiveAccountToken());
+    }
+
+    public Single<List<ExerciseName>> getExerciseName(String id){
+        return lazyFitnessRestClient.get().getExerciseName("Bearer "+mPreferencesHelper.getActiveAccountToken(),id);
     }
 
 }

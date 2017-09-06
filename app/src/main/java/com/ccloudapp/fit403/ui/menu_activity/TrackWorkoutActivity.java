@@ -1,19 +1,27 @@
 package com.ccloudapp.fit403.ui.menu_activity;
 
+import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 
 import com.ccloudapp.fit403.R;
+import com.ccloudapp.fit403.data.model.Exercise_category;
 import com.ccloudapp.fit403.data.model.Workout;
 import com.ccloudapp.fit403.ui.base.BaseActivity;
 import com.ccloudapp.fit403.ui.home.NavigationHomeActivity;
 import com.ccloudapp.fit403.ui.users.BrowseUsersPresenterImpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -35,6 +43,13 @@ public class TrackWorkoutActivity extends NavigationHomeActivity implements Trac
     @BindView(R.id.loading_spinner)
     ProgressBar mProgressBar;
 
+    @BindView(R.id.add_floating_btn)
+    FloatingActionButton add_btn;
+
+    private Dialog dialog;
+    private ListView dialoglistview;
+    private ArrayList<String> title_list;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +62,8 @@ public class TrackWorkoutActivity extends NavigationHomeActivity implements Trac
 
         trackWorkoutPresenter.attachView(this);
         trackWorkoutPresenter.showExercises();
+
+        add_btn.setOnClickListener(view -> trackWorkoutPresenter.fetchExercises());
     }
 
     @Override
@@ -76,6 +93,40 @@ public class TrackWorkoutActivity extends NavigationHomeActivity implements Trac
 
     @Override
     public void showWorkouts(List<Workout> workoutList) {
+        workoutAdapter.setData(workoutList);
+        workoutAdapter.notifyDataSetChanged();
+    }
 
+    @Override
+    public void openDialog(List<Exercise_category> list) {
+        title_list=new ArrayList<>();
+        for(int i=0;i<list.size();i++){
+            title_list.add(list.get(i).getExercise_title());
+        }
+
+        dialog=new Dialog(this);
+        dialog.setTitle("Choose Exercise");
+        dialog.setContentView(R.layout.dialog_exercises_list);
+
+        dialoglistview=(ListView) dialog.findViewById(R.id.dialoglist);
+        dialoglistview.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, title_list));
+
+        dialoglistview.setOnItemClickListener((adapterView, view, i, l) -> {
+            Intent intent = new Intent(TrackWorkoutActivity.this,EnterWorkoutActivity.class);
+            intent.putExtra( "ex_id",list.get(i).getId());
+            intent.putExtra("ex_name",list.get(i).getExercise_title());
+            intent.putExtra("ex_img",list.get(i).getImg_url());
+            startActivity(intent);
+            dialog.cancel();
+        });
+        dialog.setCanceledOnTouchOutside(false);
+
+        dialog.show();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        trackWorkoutPresenter.detachView();
     }
 }

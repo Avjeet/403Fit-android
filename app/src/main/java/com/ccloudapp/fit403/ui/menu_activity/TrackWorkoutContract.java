@@ -1,5 +1,6 @@
 package com.ccloudapp.fit403.ui.menu_activity;
 
+import com.ccloudapp.fit403.data.model.Exercise_category;
 import com.ccloudapp.fit403.data.model.Workout;
 import com.ccloudapp.fit403.ui.base.BasePresenter;
 import com.ccloudapp.fit403.ui.base.BaseView;
@@ -23,9 +24,14 @@ public class TrackWorkoutContract {
 
         void showWorkouts(List<Workout> workoutList);
 
+        void openDialog(List<Exercise_category> list);
+
     }
 
     interface Presenter extends BasePresenter<View>{
         void showExercises();
+
+        void fetchExercises();
+
     }
 }

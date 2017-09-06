@@ -2,6 +2,7 @@ package com.ccloudapp.fit403.ui.menu_activity;
 
 import com.ccloudapp.fit403.data.DataManager;
 import com.ccloudapp.fit403.data.model.ApiError;
+import com.ccloudapp.fit403.data.model.Exercise_category;
 import com.ccloudapp.fit403.data.model.Workout;
 import com.ccloudapp.fit403.ui.base.BasePresenterImpl;
 import com.ccloudapp.fit403.util.RxUtil;
@@ -9,6 +10,7 @@ import com.google.gson.Gson;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Observable;
 
 import javax.inject.Inject;
 
@@ -28,11 +30,11 @@ public class TrackWorkoutPresenterImpl extends BasePresenterImpl<TrackWorkoutCon
         TrackWorkoutContract.Presenter {
 
     private final DataManager mDataManager;
-    private Subscription mSubscription;
+    private Subscription mSubscription,nSubscription;
 
     @Inject
-    public TrackWorkoutPresenterImpl(DataManager datamanager){
-        mDataManager=datamanager;
+    public TrackWorkoutPresenterImpl(DataManager datamanager) {
+        mDataManager = datamanager;
     }
 
     @Override
@@ -50,8 +52,9 @@ public class TrackWorkoutPresenterImpl extends BasePresenterImpl<TrackWorkoutCon
     public void showExercises() {
         checkViewAttached();
         getView().showProgressBar();
-        mSubscription=mDataManager.getPreviousWorkouts()
-                .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+        mSubscription = mDataManager.getPreviousWorkouts()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Subscriber<List<Workout>>() {
                     @Override
                     public void onCompleted() {
@@ -82,4 +85,28 @@ public class TrackWorkoutPresenterImpl extends BasePresenterImpl<TrackWorkoutCon
                     }
                 });
     }
+
+    @Override
+    public void fetchExercises() {
+        nSubscription=mDataManager.getExercisescategory()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Subscriber<List<Exercise_category>>() {
+                    @Override
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        e.printStackTrace();
+                    }
+
+                    @Override
+                    public void onNext(List<Exercise_category> exercise_categories) {
+                        getView().openDialog(exercise_categories);
+                    }
+                });
+    }
+
 }

@@ -5,6 +5,8 @@ import android.content.Context;
 import com.ccloudapp.fit403.BuildConfig;
 import com.ccloudapp.fit403.data.model.AuthResponse;
 import com.ccloudapp.fit403.data.model.Credentials;
+import com.ccloudapp.fit403.data.model.ExerciseName;
+import com.ccloudapp.fit403.data.model.Exercise_category;
 import com.ccloudapp.fit403.data.model.User;
 import com.ccloudapp.fit403.data.model.UserPublic;
 import com.ccloudapp.fit403.data.model.Workout;
@@ -18,6 +20,7 @@ import com.google.gson.GsonBuilder;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import rx.Single;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
@@ -73,6 +76,13 @@ public interface FitnessRestClient {
 
     @GET("workout/me")
     Observable<List<Workout>> getPreviousWorkouts(@Header(AUTH_HEADER) String token);
+
+    @GET("exercises")
+    Single<List<Exercise_category>> getExerciseCategory(@Header(AUTH_HEADER) String token);
+
+    @GET("exercises/{id}")
+    Single<List<ExerciseName>> getExerciseName(@Header(AUTH_HEADER) String token, @Path("id") String id);
+
     class Creator {
 
         public static FitnessRestClient makeFitApi(Context context) {

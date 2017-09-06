@@ -137,6 +137,9 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
             mProfilePresenter.updateProfile(user);
         });
 
+
+
+
     }
 
     @Override
