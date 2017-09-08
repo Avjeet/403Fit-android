@@ -29,7 +29,7 @@ import butterknife.ButterKnife;
 public class WorkoutAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private final Context mContext;
-    private List<BaseItemAdapter> data;
+    private List<Workout> data;
 
     private final LayoutInflater mLayoutInflater;
     private WorkoutViewHolder viewHolder;
@@ -58,7 +58,7 @@ public class WorkoutAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        Workout workout = (Workout) getItem(position);
+        Workout workout = getItem(position);
         viewHolder= (WorkoutViewHolder) holder;
         viewHolder.dateTextView.setText(workout.date);
         viewHolder.exerciseCatTextView.setText(workout.exercise_category);
@@ -66,7 +66,7 @@ public class WorkoutAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         Glide.with(mContext).load(workout.image_url).into(viewHolder.exerciseImageView);
     }
 
-    public BaseItemAdapter getItem(int position) {
+    public Workout getItem(int position) {
         return data.get(position);
     }
 

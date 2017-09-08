@@ -4,7 +4,7 @@ package com.ccloudapp.fit403.data.model;
  * Created by AVJEET on 02-09-2017.
  */
 
-public class Workout extends BaseItemAdapter{
+public class Workout {
     public String exercise_name;
     public String exercise_category;
     public String image_url;

@@ -1,5 +1,6 @@
 package com.ccloudapp.fit403.ui.menu_activity;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -116,7 +117,7 @@ public class TrackWorkoutActivity extends NavigationHomeActivity implements Trac
             intent.putExtra( "ex_id",list.get(i).getId());
             intent.putExtra("ex_name",list.get(i).getExercise_title());
             intent.putExtra("ex_img",list.get(i).getImg_url());
-            startActivity(intent);
+            startActivityForResult(intent,1);
             dialog.cancel();
         });
         dialog.setCanceledOnTouchOutside(false);
@@ -128,5 +129,17 @@ public class TrackWorkoutActivity extends NavigationHomeActivity implements Trac
     protected void onDestroy() {
         super.onDestroy();
         trackWorkoutPresenter.detachView();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1) {
+            if(resultCode == Activity.RESULT_OK){
+                trackWorkoutPresenter.showExercises();
+            }
+            if (resultCode == Activity.RESULT_CANCELED) {
+                //Write your code if there's no result
+            }
+        }
     }
 }

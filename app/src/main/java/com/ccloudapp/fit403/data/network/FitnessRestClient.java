@@ -83,6 +83,9 @@ public interface FitnessRestClient {
     @GET("exercises/{id}")
     Single<List<ExerciseName>> getExerciseName(@Header(AUTH_HEADER) String token, @Path("id") String id);
 
+    @POST("workout/me")
+    Completable postNewWorkout(@Header(AUTH_HEADER) String token,@Body Workout workout);
+
     class Creator {
 
         public static FitnessRestClient makeFitApi(Context context) {

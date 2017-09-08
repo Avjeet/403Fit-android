@@ -1,6 +1,7 @@
 package com.ccloudapp.fit403.ui.menu_activity;
 
 import com.ccloudapp.fit403.data.model.ExerciseName;
+import com.ccloudapp.fit403.data.model.Workout;
 import com.ccloudapp.fit403.ui.base.BasePresenter;
 import com.ccloudapp.fit403.ui.base.BaseView;
 
@@ -20,6 +21,7 @@ public class EnterWorkoutContract {
 
         void setDataInSpinner(List<ExerciseName> listName);
 
+        void workoutPostComplete(Boolean completed);
 
 
     }
@@ -27,7 +29,7 @@ public class EnterWorkoutContract {
     interface Presenter extends BasePresenter<EnterWorkoutContract.View> {
         void fetchExerciseName(String id);
 
-        void postData();
+        void postData(Workout workout);
 
     }
 }

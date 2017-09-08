@@ -22,6 +22,7 @@ import dagger.Lazy;
 import rx.Completable;
 import rx.Observable;
 import rx.Single;
+import rx.Subscription;
 
 /**
  * Created by amit on 31/12/16.
@@ -130,5 +131,10 @@ public class DataManager {
     public Single<List<ExerciseName>> getExerciseName(String id){
         return lazyFitnessRestClient.get().getExerciseName("Bearer "+mPreferencesHelper.getActiveAccountToken(),id);
     }
+
+    public Completable postNewWorkout(Workout workout){
+        return lazyFitnessRestClient.get().postNewWorkout("Bearer "+mPreferencesHelper.getActiveAccountToken(),workout);
+    }
+
 
 }
